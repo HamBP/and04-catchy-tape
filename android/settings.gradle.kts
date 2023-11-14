@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
@@ -16,6 +17,7 @@ dependencyResolutionManagement {
 rootProject.name = "Catchy Tape"
 include(":app")
 include(":feature:home")
+include(":feature:login")
 include(":core:ui")
 include(":core:domain")
 include(":core:data")

@@ -2,7 +2,7 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
-    id("kotlin-kapt")
+    id("catchytape.android.hilt")
 }
 
 android {
@@ -43,6 +43,7 @@ android {
 dependencies {
 
     implementation(project(":feature:home"))
+    implementation(project(":feature:login"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)

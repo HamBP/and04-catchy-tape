@@ -1,11 +1,10 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("catchytape.android.library")
-    id("catchytape.android.hilt")
+    id("catchytape.android.feature")
 }
 
 android {
-    namespace = "com.ohdodok.catchytape.core.data"
+    namespace = "com.ohdodok.catchytape.feature.login"
 
     defaultConfig {
 
@@ -29,5 +28,5 @@ android {
 
 dependencies {
 
-    implementation(project(":core:domain"))
+    implementation(libs.google.play.services)
 }
