@@ -25,12 +25,6 @@ jobs:
       actions: read
 
     steps:
-      - name: Download and Extract Artifacts
-        uses: dawidd6/action-download-artifact@246dbf436b23d7c49e21a7ab8204ca9ecd1fe615
-        with:
-          run_id: ${{ github.event.workflow_run.id }}
-          path: artifacts
-
       # 테스트의 상세 결과를 PR에서 확인하기 위한 action
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
