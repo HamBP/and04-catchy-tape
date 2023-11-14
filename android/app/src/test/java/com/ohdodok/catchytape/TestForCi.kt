@@ -11,6 +11,6 @@ class TestForCi {
 
     @Test
     fun testFail() {
-//        assert(false)
+        assert(false)
     }
 }
