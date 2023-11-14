@@ -41,3 +41,8 @@ jobs:
 
       - name: Run unit tests
         run: ./gradlew testDebugUnitTest --stacktrace
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        with:
+          files: "**/test-results/**/*.xml"
