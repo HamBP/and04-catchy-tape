@@ -5,6 +5,7 @@ plugins {
     id("catchytape.android.hilt")
 }
 
+
 android {
     namespace = "com.ohdodok.catchytape"
     compileSdk = 33
