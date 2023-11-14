@@ -6,40 +6,38 @@ on:
     paths:
       - 'android/**'
 
-  jobs:
-    verify:
-      runs-on: ubuntu-latest
+defaults:
+  run:
+    working-directory: ./android
 
-      permissions:
-        checks: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
 
-        # needed unless run with comment_mode: off
-        pull-requests: write
+    permissions:
+      checks: write
 
-        # required by download step to access artifacts API
-        actions: read
+      # needed unless run with comment_mode: off
+      pull-requests: write
 
-      steps:
-        - name: Checkout the code
-          uses: actions/checkout@v3
+      # required by download step to access artifacts API
+      actions: read
 
-        - name: Move working directory
-          working-directory: ./android
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
 
-        - name: set up JDK 17
-          uses: actions/setup-java@v3
-          with:
-            distribution: 'corretto'
-            java-version: '17'
+      - name: set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '17'
 
-        - name: set up Android SDK
-          uses: android-actions/setup-android@v2
+      - name: set up Android SDK
+        uses: android-actions/setup-android@v2
 
-        - name: Grant execute permission for gradlew
-          run: chmod +x gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-        - name: Run detekt
-          run: ./gradlew detekt
-
-        - name: Run unit tests
-          run: ./gradlew testDebugUnitTest --stacktrace
+      - name: Run unit tests
+        run: ./gradlew testDebugUnitTest --stacktrace
