@@ -30,13 +30,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Create KeyStore File and Properties
+      - name: Run unit tests
         run: |
           echo $DEBUG_KEYSTORE | base64 -d > keystore.properties
           echo $KEYSTORE_PROPERTIES > keystore.properties
-
-      - name: Run unit tests
-        run: ./gradlew testDebugUnitTest --stacktrace
+          ./gradlew testDebugUnitTest --stacktrace
 
       - name: Publish Test Results
         if: always()
