@@ -33,6 +33,7 @@ jobs:
       - name: Run unit tests
         env: 
           DEBUG_KEYSTORE: ${{ secrets.DEBUG_KEYSTORE }}
+          KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
         run: |
           echo "$KEYSTORE_PROPERTIES"
           echo "$DEBUG_KEYSTORE" | base64 -d > keystore.properties
