@@ -31,9 +31,8 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run unit tests
-        env: |
+        env: 
           DEBUG_KEYSTORE: ${{ secrets.DebugKeystore }}
-          KEYSTORE_PROPERTIES: ${{ secrets.KeystoreProperties }}
         run: |
           echo "$KEYSTORE_PROPERTIES"
           echo "$DEBUG_KEYSTORE" | base64 -d > keystore.properties
