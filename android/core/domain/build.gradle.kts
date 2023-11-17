@@ -3,6 +3,12 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlin.jvm)
 }
 
-dependencies {
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
+}
 
+dependencies {
+    testImplementation(libs.junit)
+    testImplementation("io.kotest:kotest-runner-junit5:5.8.0")
+    implementation("javax.inject:javax.inject:1")
 }
